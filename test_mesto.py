@@ -1,12 +1,14 @@
 from client import signin, add_card
 
 
-def test_add_card(token):
-    print('\n token in test 1:\n')
+def test_add_card(token_and_id):
+    """
+    Пример теста с использованием фикстуры для получения токена и айди
+    """
+    token, user_id = token_and_id
     print(token)
+    print(user_id)
 
-    add_card_rs = add_card(token)
-    card_id = add_card_rs.json()['data']['_id']
 
 
 def test_add_card2(token):
@@ -19,4 +21,11 @@ def test_add_card2(token):
 
     add_card_rs = add_card(token)
     card_id = add_card_rs.json()['data']['_id']
+
+
+# def get_token_and_id():
+#     rs = signin().json()
+#     token = rs['token']
+#     user_id = rs['user']['_id']
+#     return token, user_id
 
